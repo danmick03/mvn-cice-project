@@ -1,0 +1,46 @@
+				
+
+pipeline{
+  agent any
+	stages{
+		stage('Build'){
+      steps{
+        echo "Building the @project.....!!"
+        bat "mvn clean"
+      }
+    }
+		stage('Test'){
+      	steps{
+        echo "Testing the project.....!!"
+        bat "mvn test"
+				}
+			}
+		stage('Deploy'){
+      steps{
+        echo "Deploying the @project.......!!"
+
+				}
+			}
+    stage('compile'){
+      steps{
+      echo "Releasing the @project .......!!"
+      bat "mvn compile"
+				}
+			}
+		}
+	}
+**************************************************
+<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>4.4.0</muleVersion>
+						<username>daniEzra_04</username>
+						<password>Da87nbzx78*</password>
+						<applicationName>cicddemo</applicationName>
+						<environment>Sandbox</environment>
+						<workers>1</workers>
+						<workerType>Micro</workerType>
+						<objectStoreV2>true</objectStoreV2>
+					</cloudHubDeployment>
+				</configuration>
+***************************************************
